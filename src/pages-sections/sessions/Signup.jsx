@@ -10,6 +10,7 @@ import BazaarTextField from "components/BazaarTextField";
 import { Wrapper } from "./Login";
 import SocialButtons from "./SocialButtons";
 import EyeToggleButton from "./EyeToggleButton";
+import axios from "axios";
 
 const Signup = () => {
   const [passwordVisibility, setPasswordVisibility] = useState(false);
@@ -19,6 +20,29 @@ const Signup = () => {
 
   const handleFormSubmit = async (values) => {
     console.log(values);
+    sendForm();
+  };
+
+  const sendForm = async () => {
+    await axios
+      .post(
+        `https://i9nwbiqoc6.execute-api.ap-northeast-2.amazonaws.com/test/user/`,
+        {
+          user_name: "test123",
+          user_id: "test123",
+          password: "test123",
+          nickname: "test123",
+          gender: "F",
+          phone: "010-1234-5678",
+          email: "test123@aa.cc",
+        }
+      )
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
@@ -30,15 +54,15 @@ const Signup = () => {
   return (
     <Wrapper elevation={3} passwordVisibility={passwordVisibility}>
       <form onSubmit={handleSubmit}>
-        <BazaarImage
+        {/* <BazaarImage
           src="/assets/images/bazaar-black-sm.svg"
           sx={{
             m: "auto",
           }}
-        />
+        /> */}
 
         <H1 textAlign="center" mt={1} mb={4} fontSize={16}>
-          Create Your Account
+          신규 회원 가입
         </H1>
 
         <BazaarTextField
@@ -66,7 +90,7 @@ const Signup = () => {
           onBlur={handleBlur}
           value={values.email}
           onChange={handleChange}
-          label="Email or Phone Number"
+          label="Email"
           placeholder="exmple@mail.com"
           error={!!touched.email && !!errors.email}
           helperText={touched.email && errors.email}
@@ -157,11 +181,11 @@ const Signup = () => {
             height: 44,
           }}
         >
-          Create Account
+          계정 생성하기
         </Button>
       </form>
 
-      <SocialButtons />
+      {/* <SocialButtons /> */}
       <FlexRowCenter mt="1.25rem">
         <Box>Already have an account?</Box>
         <Link href="/login" passHref legacyBehavior>

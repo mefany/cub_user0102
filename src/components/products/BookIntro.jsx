@@ -13,7 +13,7 @@ import { FlexBox, FlexRowCenter } from "../flex-box";
 
 // ================================================================
 const BookIntro = ({ data }) => {
-  const { trade_uid, sell_price, title, sell_state, image1, name, user_uid } =
+  const { trade_uid, sell_price, title, sell_state, image, name, user_uid } =
     data;
   const { state, dispatch } = useAppContext();
   const [selectedImage, setSelectedImage] = useState(0); // CHECK PRODUCT EXIST OR NOT IN THE CART
@@ -29,7 +29,7 @@ const BookIntro = ({ data }) => {
         price,
         qty: amount,
         name: title,
-        imgUrl: image1,
+        imgUrl: image,
         trade_uid,
       },
     });
@@ -46,7 +46,7 @@ const BookIntro = ({ data }) => {
               height={300}
               loading="eager"
               objectFit="contain"
-              src={image1}
+              src={image}
             />
             {/* <Image
               src="http://image.yes24.com/goods/115032356/XL"

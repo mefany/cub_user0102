@@ -17,13 +17,14 @@ const Section11 = ({ moreItems }) => {
           <Grid item lg={2} md={3} sm={4} xs={6} key={item.trade_uid}>
             <BookCard
               hoverEffect
-              id={item.trade_uid}
-              slug={item.trade_uid}
+              shop_name={item.shop_name}
+              trade_uid={item.trade_uid}
               title={item.title}
               price={item.price}
               sell_price={item.sell_price}
-              imgUrl={item.image1}
-              intro={item.intro}
+              imgUrl={item.image}
+              description={item.description}
+              // description={item.description}
             />
           </Grid>
         ))}

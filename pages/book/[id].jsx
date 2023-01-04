@@ -76,8 +76,8 @@ const ProductDetails = (props) => {
           indicatorColor="primary"
           onChange={handleOptionClick}
         >
-          <Tab className="inner-tab" label="Description" />
-          <Tab className="inner-tab" label="Review (3)" />
+          <Tab className="inner-tab" label="상세" />
+          <Tab className="inner-tab" label="리뷰 (3)" />
         </StyledTabs>
 
         <Box mb={6}>

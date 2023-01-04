@@ -5,7 +5,7 @@ import { H3 } from "components/Typography"; // =================================
 const ProductDescription = () => {
   return (
     <Box>
-      <H3 mb={2}>Specification:</H3>
+      <H3 mb={2}>제품상세:</H3>
       <Box>
         Brand: Beats <br />
         Model: S450 <br />

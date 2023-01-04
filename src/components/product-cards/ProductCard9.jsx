@@ -75,7 +75,7 @@ const ProductCard9 = (props) => {
               />
             )}
 
-            <Image src={imgUrl} alt={title} width="100%" />
+            {/* <Image src={imgUrl} alt={title} width="100%" /> */}
           </Box>
         </Grid>
 

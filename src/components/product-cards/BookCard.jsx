@@ -9,7 +9,7 @@ import BazaarCard from "components/BazaarCard";
 import { H3, Span } from "components/Typography";
 import BazaarRating from "components/BazaarRating";
 import { useAppContext } from "contexts/AppContext";
-import ProductViewDialog from "components/products/ProductViewDialog";
+import BookViewDialog from "components/products/BookViewDialog";
 import { FlexBox } from "../flex-box";
 
 const StyledBazaarCard = styled(BazaarCard)(() => ({
@@ -67,12 +67,13 @@ const ContentWrapper = styled(Box)(() => ({
 })); // ========================================================
 
 // ========================================================
-const ProductCard1 = ({
-  id,
+const BookCard = ({
+  trade_uid,
+  shop_name,
   slug,
   title,
   price,
-  intro,
+  description,
   sell_price,
   imgUrl,
   // rating = 5,
@@ -116,7 +117,7 @@ const ProductCard1 = ({
           </IconButton>
         </HoverIconWrapper>
 
-        <Link href={`/book/${id}`}>
+        <Link href={`/book/${trade_uid}`}>
           <a>
             <LazyImage
               src={imgUrl}
@@ -130,15 +131,15 @@ const ProductCard1 = ({
       </ImageWrapper>
 
       {/*미리보기 모달*/}
-      <ProductViewDialog
+      <BookViewDialog
         openDialog={openModal}
         handleCloseDialog={toggleDialog}
         product={{
           title,
-          price,
-          id,
-          slug,
-          intro,
+          sell_price,
+          trade_uid,
+          shop_name,
+          description,
           imgGroup: [imgUrl, imgUrl],
         }}
       />
@@ -188,4 +189,4 @@ const ProductCard1 = ({
   );
 };
 
-export default ProductCard1;
+export default BookCard;
